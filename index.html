@@ -6,229 +6,147 @@
 <meta name="theme-color" content="#172440">
 <title>Карта желаний — новогоднее путешествие</title>
 <style>
-:root{--night:#14213d;--night2:#26395c;--gold:#e8d19c;--cream:#fff5df;--muted:#d7d1c5;--panel:#ffffff0d}
-*{box-sizing:border-box}
-body{margin:0;color:var(--cream);background:radial-gradient(ellipse at top,#35496d,var(--night) 65%);font-family:Georgia,"Times New Roman",serif;min-height:100vh}
-button,input,textarea{font:inherit}
-#app{max-width:760px;margin:auto;padding:18px 16px 50px}
-.top{display:flex;justify-content:space-between;gap:10px;font:12px Arial,sans-serif;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin:8px 0 18px}
-.progress{height:5px;border-radius:10px;background:#ffffff25;overflow:hidden;margin-bottom:20px}
-.progress span{display:block;height:100%;width:0;background:var(--gold);transition:.3s}
-.screen{animation:appear .35s ease}
-@keyframes appear{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-h1,h2,h3{font-weight:normal;line-height:1.25}
-h1{font-size:clamp(34px,8vw,48px);color:var(--gold);margin:12px 0}
-h2{font-size:29px;color:var(--gold);margin:12px 0}
-h3{font-size:21px;color:var(--gold)}
-p{font-size:17px;line-height:1.7;color:#f1e9d9}
-.small{font:14px/1.6 Arial,sans-serif;color:var(--muted)}
-.hero{min-height:220px;border-radius:22px;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;padding:25px;margin:12px 0 24px;border:1px solid #e8d19c55;background:linear-gradient(145deg,#394e73,#172440);position:relative}
-.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.72}
-.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#101c35bb,#101c3522);pointer-events:none}
-.heroContent{position:relative;z-index:1}
-.panel{padding:20px;border:1px solid #e8d19c38;border-radius:17px;background:var(--panel);margin:18px 0}
-.notice{border-left:3px solid var(--gold);padding:12px 15px;background:#ffffff0b;border-radius:0 12px 12px 0;font:14px/1.65 Arial,sans-serif;color:#e9e0d1;margin:20px 0}
-.btn{width:100%;display:block;margin:13px 0;padding:15px 18px;border-radius:30px;border:1px solid var(--gold);background:linear-gradient(135deg,#f0dfb7,#c9ad75);color:#1b2945;font-weight:bold;cursor:pointer}
-.btn.secondary{background:#ffffff0c;color:var(--cream)}
-.btn:disabled{opacity:.45;cursor:not-allowed}
-input[type=text],textarea{width:100%;padding:13px;border-radius:12px;border:1px solid #e8d19c66;background:#101d38;color:white;margin:8px 0 15px}
-textarea{min-height:90px;resize:vertical;line-height:1.5}
-label{display:block;line-height:1.5;color:#f4e8d2}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.tile{border:1px solid #e8d19c55;background:#ffffff0b;color:var(--cream);border-radius:14px;padding:10px;cursor:pointer;text-align:center;min-width:0}
-.tile img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:9px;display:block;margin-bottom:8px;background:#ffffff12}
-.tile.selected{border:2px solid var(--gold);background:#e8d19c25}
-.tile .emoji{font-size:30px;display:block;padding:15px}
-.starline{display:flex;justify-content:center;gap:8px;margin:20px}
-.starline img{width:27px;height:27px;object-fit:contain;opacity:.22}
-.starline img.on{opacity:1;filter:drop-shadow(0 0 6px #f7d77d)}
-.artwork{width:100%;display:block;border-radius:18px;margin:16px 0;max-height:380px;object-fit:cover}
-.footer{text-align:center;color:#c7c2b8;font:13px/1.6 Arial,sans-serif;margin-top:35px}
-.cardPreview{border-radius:18px;padding:20px;text-align:center;background:linear-gradient(145deg,#f4e8cd,#cdbb96);color:#243451;margin:15px 0}
-.cardPreview h3{color:#243451}
-.cardPreview img{width:100px;height:100px;object-fit:cover;border-radius:12px;margin:5px}
-.macImage{width:100%;max-height:340px;object-fit:cover;border-radius:18px}
-@media(max-width:420px){#app{padding:14px 12px 40px}h2{font-size:25px}.hero{min-height:190px}}
+:root{--night:#14213d;--night2:#26395c;--gold:#e8d19c;--cream:#fff5df;--muted:#d7d1c5;--paper:#fff6e5;--ink:#263653}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;color:var(--cream);font-family:Georgia,"Times New Roman",serif;background:#14213d url('images/images/bg_dark.png') center top/cover fixed no-repeat}button,input,textarea{font:inherit}button{touch-action:manipulation}#app{max-width:790px;margin:auto;padding:16px 15px 46px}.top{display:flex;justify-content:space-between;gap:10px;font:11px Arial,sans-serif;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin:5px 2px 13px}.progress{height:5px;border-radius:10px;background:#ffffff30;overflow:hidden;margin-bottom:14px}.progress span{display:block;height:100%;width:0;background:var(--gold);transition:width .35s}.screen{animation:appear .35s ease}@keyframes appear{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+h1,h2,h3{font-weight:normal;line-height:1.25}h1{font-size:clamp(34px,8vw,49px);color:var(--gold);margin:10px 0}h2{font-size:clamp(25px,6vw,32px);color:var(--gold);margin:10px 0}h3{font-size:21px;color:var(--ink);margin:4px 0 12px}p{font-size:17px;line-height:1.72;color:#f4ecdf;margin:13px 0}.small{font:14px/1.6 Arial,sans-serif;color:#e2d8c8}.hero{min-height:230px;border-radius:23px;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;padding:25px;margin:10px 0 22px;border:1px solid #e8d19c77;background:#293b5c;position:relative;isolation:isolate}.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.88;z-index:-2}.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#101c35e8,#101c3540 70%,#101c3520);z-index:-1}.heroContent{max-width:570px;text-shadow:0 2px 9px #101c35}.heroContent p{margin:8px 0}.panel{padding:19px;border:1px solid #d9bd805e;border-radius:18px;background:linear-gradient(145deg,#fff8e8f2,#f4e6cce8);color:var(--ink);margin:18px 0;box-shadow:0 8px 25px #06132925}.panel p,.panel label{color:var(--ink)}.panel .small{color:#59647a}.notice{border-left:3px solid var(--gold);padding:13px 15px;background:#ffffff12;border-radius:0 12px 12px 0;font:14px/1.7 Arial,sans-serif;color:#eee4d5;margin:20px 0}.btn{width:100%;display:block;margin:13px 0;padding:15px 18px;border-radius:30px;border:1px solid var(--gold);background:linear-gradient(135deg,#f0dfb7,#c9ad75);color:#1b2945;font-weight:bold;cursor:pointer;box-shadow:0 4px 12px #0002}.btn.secondary{background:#ffffff12;color:var(--cream);box-shadow:none}.btn:disabled{opacity:.45;cursor:not-allowed}input[type=text],textarea{width:100%;padding:13px;border-radius:12px;border:1px solid #b9a779;background:#fffdf8;color:#263653;margin:8px 0 15px}textarea{min-height:90px;resize:vertical;line-height:1.55}label{display:block;line-height:1.5;color:#263653;margin-top:10px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.tile{border:1px solid #d7c18e;background:#fffaf0;color:#263653;border-radius:15px;padding:9px;cursor:pointer;text-align:center;min-width:0;font:14px/1.4 Arial,sans-serif}.tile img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;display:block;margin-bottom:8px;background:#e7dfd1}.tile.selected{border:2px solid #ad8843;background:#f8edcf;box-shadow:0 0 0 2px #e8d19c55}.tile:focus-visible,.btn:focus-visible{outline:3px solid #fff;outline-offset:3px}.artwork{width:100%;display:block;border-radius:18px;margin:17px 0;max-height:390px;object-fit:cover;border:1px solid #e8d19c55}.scenePair{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0}.scenePair img{width:100%;height:190px;object-fit:cover;border-radius:16px;border:1px solid #e8d19c55}.starBox{display:flex;align-items:center;justify-content:center;gap:8px;margin:17px auto 22px;padding:10px 14px;border:1px solid #e8d19c55;border-radius:18px;background:#ffffff0b;max-width:310px}.starBox img{width:28px;height:28px;object-fit:contain;opacity:.22}.starBox img.on{opacity:1;filter:drop-shadow(0 0 7px #f7d77d)}.starBox span{font:12px Arial,sans-serif;color:#f3dfb6;margin-left:5px}.footer{text-align:center;color:#d2c7b7;font:13px/1.7 Arial,sans-serif;margin-top:32px}.story{padding:17px 18px;border-radius:17px;background:linear-gradient(145deg,#ffffff17,#ffffff09);border:1px solid #e8d19c30;margin:14px 0}.story p:first-child{margin-top:0}.story p:last-child{margin-bottom:0}.pictureStrip{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}.pictureStrip img{width:100%;height:180px;object-fit:cover;border-radius:15px;border:1px solid #e8d19c55}.sparkGrid .tile{text-align:left;padding:8px}.sparkGrid .tile img{aspect-ratio:1.22;margin-bottom:7px}.sparkGrid .tile span{display:block;padding:0 3px 3px}.boardPreview{margin:18px 0;padding:14px;border-radius:18px;background:#fff6e5;color:#263653;border:1px solid #e8d19c}.boardPreview img{display:block;width:100%;height:auto;border-radius:10px}.boardPreview a{display:block;text-align:center;margin:13px 0 4px;color:#263653;font: bold 15px Arial,sans-serif;text-decoration:underline}.macGrid .tile{padding:7px;background:linear-gradient(145deg,#e9d6ad,#c6ad7d);border-color:#f1dfb6}.macGrid .tile img{width:100%;height:170px;aspect-ratio:auto;object-fit:cover;border-radius:10px}.macReveal{max-width:440px;margin:18px auto;padding:16px;border-radius:20px;background:#fff6e5;color:#263653;text-align:center;box-shadow:0 10px 30px #0003;animation:flip .55s ease}.macReveal img{width:100%;max-height:400px;object-fit:contain;border-radius:13px}.macReveal p{color:#263653}.macReveal h3{margin-top:12px}@keyframes flip{0%{transform:rotateY(90deg);opacity:0}100%{transform:rotateY(0);opacity:1}}.footer strong{font-weight:normal;color:#e8d19c}
+@media(max-width:430px){#app{padding:13px 12px 38px}.hero{min-height:195px;padding:20px}.panel{padding:16px}.grid{gap:8px}.scenePair img{height:140px}.sparkGrid .tile img{height:120px}.macGrid .tile img{height:145px}p{font-size:16px}}
 </style>
 </head>
 <body>
-<div id="app">
-  <div class="top"><span>✧ Новогоднее путешествие</span><span id="chapterLabel">Начало</span></div>
-  <div class="progress"><span id="progressBar"></span></div>
-  <main id="content"></main>
-  <div class="footer">Создано с теплом Дианой Шакировой<br>Психолог, телесный терапевт</div>
-</div>
+<div id="app"><div class="top"><span>✧ Новогоднее путешествие</span><span id="chapterLabel">Начало</span></div><div class="progress"><span id="progressBar"></span></div><main id="content"></main><div class="footer">Создано с теплом Дианой Шакировой<br><strong>Психолог, телесный терапевт</strong></div></div>
 <script>
-"use strict";
-
-/* Все изображения находятся в папке images/images внутри репозитория. */
-const IMG = "images/images/";
-const chapters = [
-  {name:"Таинственное приглашение",image:"chapter1_room.png"},
-  {name:"Сад энергии",image:"chapter2_guardian.png"},
-  {name:"Мастерская вдохновения",image:"chapter3_workshop.png"},
-  {name:"Дворец желаний",image:"chapter4_palace.png"},
-  {name:"Дорога возможностей",image:"chapter5_road.png"},
-  {name:"Подарок из будущего",image:"chapter6_house.png"}
+  "use strict";
+const IMG="images/images/";
+const GAME_URL="https://igrapsy.github.io/karta-zhelaniy/";
+const chapters=["Таинственное приглашение","Сад энергии","Мастерская вдохновения","Дворец желаний","Дорога возможностей","Подарок из будущего"];
+const wishPictures=[
+["vision_home_apartment.png","Квартира мечты"],["vision_home_bedroom.png","Уютная спальня"],["vision_home_house.png","Дом мечты"],["vision_home_living.png","Гостиная"],["vision_home_terrace.png","Терраса"],
+["vision_travel_car.png","Путешествие на машине"],["vision_travel_hotel.png","Красивый отель"],["vision_travel_island.png","Остров"],["vision_travel_italy.png","Италия"],["vision_travel_mountains.png","Горы"],["vision_travel_paris.png","Париж"],["vision_travel_plane.png","Новые путешествия"],["vision_travel_sea.png","Море"],
+["vision_work_business.png","Своё дело"],["vision_work_creativity.png","Творчество"],["vision_work_office.png","Рабочее пространство"],["vision_work_project.png","Свой проект"],["vision_work_stage.png","Выступления"],["vision_work_study.png","Обучение"],
+["vision_money_car.png","Большая покупка"],["vision_money_comfort.png","Комфорт"],["vision_money_income.png","Доход"],["vision_money_opportunities.png","Возможности"],["vision_money_planning.png","Финансовая свобода"],["vision_money_savings.png","Накопления"],
+["vision_love_connection.png","Близость"],["vision_love_couple.png","Любовь"],["vision_love_family.png","Семья"],["vision_love_friends.png","Друзья"],["vision_love_hug.png","Объятия"],["vision_love_travel.png","Путешествие вместе"],
+["vision_self_care.png","Забота о себе"],["vision_self_morning.png","Красивое утро"],["vision_self_reading.png","Чтение"],["vision_self_solo_trip.png","Путешествие для себя"],["vision_self_walk.png","Прогулки"],["vision_self_yoga.png","Йога и движение"]
 ];
-
-const wishPictures = [
-  ["vision_home_apartment.png","Дом и уют"],["vision_home_bedroom.png","Спальня мечты"],
-  ["vision_home_house.png","Дом мечты"],["vision_home_living.png","Гостиная"],
-  ["vision_home_terrace.png","Терраса"],["vision_travel_car.png","Путешествия на машине"],
-  ["vision_travel_hotel.png","Отдых в отеле"],["vision_travel_island.png","Остров"],
-  ["vision_travel_italy.png","Италия"],["vision_travel_mountains.png","Горы"],
-  ["vision_travel_paris.png","Париж"],["vision_travel_plane.png","Перелёты"],
-  ["vision_travel_sea.png","Море"],["vision_work_business.png","Своё дело"],
-  ["vision_work_creativity.png","Творчество и работа"],["vision_work_office.png","Рабочее пространство"],
-  ["vision_work_project.png","Свой проект"],["vision_work_stage.png","Выступления и сцена"],
-  ["vision_work_study.png","Обучение"],["vision_money_car.png","Покупка автомобиля"],
-  ["vision_money_comfort.png","Комфортная жизнь"],["vision_money_income.png","Доход"],
-  ["vision_money_opportunities.png","Новые возможности"],["vision_money_planning.png","Финансовое планирование"],
-  ["vision_money_savings.png","Накопления"],["vision_love_connection.png","Близость и отношения"],
-  ["vision_love_couple.png","Любовь и пара"],["vision_love_family.png","Семья"],
-  ["vision_love_friends.png","Друзья"],["vision_love_hug.png","Объятия"],
-  ["vision_love_travel.png","Путешествие вместе"],["vision_self_care.png","Забота о себе"],
-  ["vision_self_morning.png","Красивое утро"],["vision_self_reading.png","Чтение"],
-  ["vision_self_solo_trip.png","Путешествие для себя"],["vision_self_walk.png","Прогулки"],
-  ["vision_self_yoga.png","Йога и движение"]
+/* Для карты «Опора» используется лицевая иллюстрация mac_inner_light.png. mac_back.png — только рубашка. */
+const macCards=[
+["Изобилие","mac_abundance.png","Замечай возможности и то хорошее, что уже есть в твоей жизни. Позволяй себе хотеть большего и постепенно двигаться к этому."],
+["Опора","mac_inner_light.png","Твоя опора может складываться из твоего опыта, ценностей, близких людей и бережных решений. Вспомни, что уже помогало тебе справляться и возвращаться к себе."],
+["Расцвет","mac_bloom.png","У всего есть свой ритм. Дай себе время раскрывать то, что уже созревает внутри."],
+["Спокойствие","mac_calm.png","Иногда ясность приходит, когда ты позволяешь себе замедлиться и услышать собственные ощущения."],
+["Смелость","mac_courage.png","Необязательно быть бесстрашной. Маленький шаг навстречу важному тоже может быть смелостью."],
+["Свобода","mac_freedom.png","Замечай, где у тебя появляется больше пространства для выбора и возможности поступать по-своему."],
+["Вдохновение","mac_inspiration.png","Разрешай себе замечать то, что вызывает любопытство и желание творить."],
+["Радость","mac_joy.png","Не откладывай приятные моменты на особенный день. Маленькая радость тоже имеет значение."],
+["Движение","mac_movement.png","Тебе не обязательно видеть весь путь. Иногда достаточно выбрать направление и сделать один посильный шаг."],
+["Новый путь","mac_new_path.png","Новый этап может начинаться постепенно — с интереса, решения или маленькой возможности."],
+["Забота о себе","mac_selfcare.png","Твоё время, внимание и бережное отношение к себе важны. Позволяй себе получать заботу."],
+["Новые возможности","mac_opportunities.png","Необязательно заранее знать, куда приведёт новая возможность. Можно присмотреться к ней и решить, подходит ли она тебе."]
 ];
-
-const macCards = [
-  ["Изобилие","mac_abundance.png","Замечай возможности и то хорошее, что уже есть в твоей жизни. Позволяй себе хотеть большего и постепенно двигаться к этому."],
-  ["Опора","mac_back.png","У тебя может быть своя опора: люди, привычки, знания, опыт и маленькие действия, которые помогают чувствовать устойчивость."],
-  ["Расцвет","mac_bloom.png","У всего есть свой ритм. Дай себе время раскрывать то, что уже созревает внутри."],
-  ["Спокойствие","mac_calm.png","Иногда ясность приходит, когда ты позволяешь себе замедлиться и услышать собственные ощущения."],
-  ["Смелость","mac_courage.png","Необязательно быть бесстрашной. Маленький шаг навстречу важному тоже может быть смелостью."],
-  ["Свобода","mac_freedom.png","Замечай, где у тебя появляется больше пространства для выбора и возможности поступать по-своему."],
-  ["Внутренний свет","mac_inner_light.png","Вспоминай то, что возвращает тебе тепло, интерес и ощущение собственной живости."],
-  ["Вдохновение","mac_inspiration.png","Разрешай себе замечать то, что вызывает любопытство и желание творить."],
-  ["Радость","mac_joy.png","Не откладывай приятные моменты на особенный день. Маленькая радость тоже имеет значение."],
-  ["Движение","mac_movement.png","Тебе не обязательно видеть весь путь. Иногда достаточно выбрать направление и сделать один посильный шаг."],
-  ["Новый путь","mac_new_path.png","Новый этап может начинаться постепенно — с интереса, решения или маленькой возможности."],
-  ["Забота о себе","mac_selfcare.png","Твоё время, внимание и бережное отношение к себе важны. Позволяй себе получать заботу."]
+const sparkOptions=[
+["Прогулки","vision_self_walk.png"],["Танцы и движение","vision_self_yoga.png"],["Музыка и вдохновение","vision_work_creativity.png"],["Путешествия","vision_travel_sea.png"],["Творчество","vision_work_creativity.png"],["Встречи с друзьями","vision_love_friends.png"],["Чтение","vision_self_reading.png"],["Уютные вечера","vision_home_living.png"],["Забота о себе","vision_self_care.png"],["Обучение","vision_work_study.png"],["Время наедине с собой","vision_self_solo_trip.png"],["Вкусная еда и маленькие удовольствия","vision_money_comfort.png"],["Близкие люди","vision_love_hug.png"],["Природа и море","vision_travel_mountains.png"]
 ];
-
-const state={page:"intro",stars:[],sparks:[],customSpark:"",wishPictures:[],wishTitle:"",wishText:"",wish:"",action:"",futureWords:"",mac:null};
+const state={page:"intro",stars:[],sparks:[],customSpark:"",wishPictures:[],wishTitle:"",wishText:"",wish:"",action:"",futureWords:"",mac:null,boardDataUrl:""};
 const content=document.getElementById("content"),progressBar=document.getElementById("progressBar"),chapterLabel=document.getElementById("chapterLabel");
-function safe(s){return String(s||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
-function image(src,alt="",cls="artwork"){return `<img class="${cls}" src="${IMG}${src}" alt="${safe(alt)}" onerror="this.style.display='none'">`;}
-function hero(title,subtitle,src){return `<div class="hero">${src?image(src,title,""):""}<div class="heroContent"><div class="small">${safe(subtitle||"НОВОГОДНЕЕ ПУТЕШЕСТВИЕ")}</div><h2>${safe(title)}</h2></div></div>`;}
-function panel(html){return `<div class="panel">${html}</div>`;}
-function btn(label,fn,secondary=false){return `<button class="btn ${secondary?"secondary":""}" onclick="${fn}">${label}</button>`;}
-function updateProgress(){const n=state.page==="intro"?0:state.page==="final"?6:Number(state.page)+1;progressBar.style.width=(n/6*100)+"%";chapterLabel.textContent=state.page==="intro"?"Начало":state.page==="final"?"Завершение":`Глава ${n}`;}
-function show(html){content.innerHTML=`<div class="screen">${html}</div>`;updateProgress();window.scrollTo(0,0);}
-function starline(){return `<div class="starline">${Array.from({length:6},(_,i)=>`<img src="${IMG}star_single.png" class="${state.stars.includes(i)?"on":""}" alt="Звезда" onerror="this.style.display='none'">`).join("")}</div>`;}
+function safe(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function img(file,alt="",cls="artwork"){return `<img class="${cls}" src="${IMG}${file}" alt="${safe(alt)}" loading="lazy" onerror="this.style.display='none'">`;}
+function hero(title,subtitle,file){return `<section class="hero">${file?img(file,title,""):""}<div class="heroContent"><div class="small">${safe(subtitle||"НОВОГОДНЕЕ ПУТЕШЕСТВИЕ")}</div><h2>${safe(title)}</h2></div></section>`;}
+function panel(html){return `<section class="panel">${html}</section>`;}
+function btn(label,fn,secondary=false){return `<button type="button" class="btn ${secondary?"secondary":""}" onclick="${fn}">${label}</button>`;}
+function starline(){return `<div class="starBox" aria-label="Получено ${state.stars.length} из 6 звёзд">${Array.from({length:6},(_,i)=>`<img src="${IMG}star_single.png" class="${state.stars.includes(i)?"on":""}" alt="${state.stars.includes(i)?"Полученная звезда":"Ещё не получена"}">`).join("")}<span>${state.stars.length} / 6</span></div>`;}
+function updateProgress(){const n=state.page==="intro"?0:state.page==="final"?6:Math.min(6,Number(state.page)+1);progressBar.style.width=(n/6*100)+"%";chapterLabel.textContent=state.page==="intro"?"Начало":state.page==="final"?"Завершение":`Глава ${n}`;}
+function show(html){content.innerHTML=`<div class="screen">${html}</div>`;updateProgress();window.scrollTo({top:0,behavior:"smooth"});}
 function completeChapter(n,next){if(!state.stars.includes(n))state.stars.push(n);next();}
-  function intro(){state.page="intro";show(`
-<div class="hero">${image("cover.png","Карта желаний","")}<div class="heroContent"><div class="small">НОВОГОДНЕЕ СКАЗОЧНОЕ ПРИКЛЮЧЕНИЕ</div><h1>Карта желаний</h1><p>Путешествие к тому, что хочется пригласить в свою жизнь</p></div></div>
-${panel(`<h3>Приготовься к путешествию</h3><p>Тебе понадобятся лист бумаги А4, цветные карандаши, фломастеры или краски, ручка. По желанию — блокнот.</p><p>Устройся поудобнее, приготовь любимый напиток и выдели немного времени только для себя.</p><p class="small">Ты можешь проходить игру в своём темпе, делать паузы и возвращаться к заданиям.</p>`)}
+function intro(){state.page="intro";show(`
+<div class="hero">${img("cover.png","Карта желаний","")}<div class="heroContent"><div class="small">НОВОГОДНЕЕ СКАЗОЧНОЕ ПРИКЛЮЧЕНИЕ</div><h1>Карта желаний</h1><p>Путешествие к тому, что хочется пригласить в свою жизнь</p></div></div>
+${img("invitation.png","Волшебное приглашение","artwork")}
+${panel(`<h3>Приготовься к путешествию</h3><p>Тебе понадобятся лист бумаги А4, цветные карандаши, фломастеры или краски, ручка. По желанию — блокнот.</p><p>Устройся поудобнее, приготовь любимый напиток и выдели немного времени только для себя. Здесь не нужно торопиться: можно проходить главы в своём темпе, делать паузы и возвращаться к заданиям.</p>`)}
 <div class="notice">Эта игра создана для самопознания, вдохновения и творческого исследования желаний. Она не заменяет психотерапию или индивидуальную психологическую помощь. Ты можешь пропустить любое упражнение или остановить игру в любой момент. Если появятся сильные или глубокие чувства, сделай паузу, позаботься о себе и при необходимости обратись за поддержкой к квалифицированному специалисту.</div>
-${btn("Начать путешествие","chapter1()")}`);}
-
+${btn("Открыть волшебное письмо","chapter1()")}`);}
 function chapter1(){state.page="0";show(`
-${hero("Таинственное приглашение","ГЛАВА ПЕРВАЯ",chapters[0].image)}
-<p>В один из зимних вечеров ты замечаешь на подоконнике необычный конверт. Он словно светится изнутри. На нём нет имени отправителя — только золотая снежинка.</p>
-<p>Ты осторожно раскрываешь письмо. Внутри — приглашение отправиться в Мастерскую желаний. Говорят, там собираются мечты, которым давно хочется стать частью настоящей жизни.</p>
-<p>Но прежде чем отправиться туда, письмо предлагает тебе остановиться и прислушаться к себе.</p>
-${panel(`<h3>Несколько вопросов для начала</h3><p class="small">Можешь записать ответы или просто подумать о них.</p><label>Чего мне хочется больше в следующем году?</label><textarea id="start1"></textarea><label>Какие приятные события я хотела бы пригласить в свою жизнь?</label><textarea id="start2"></textarea><label>Что я давно хотела попробовать, но откладывала?</label><textarea id="start3"></textarea>`)}
-<p>Снежинка на конверте начинает мерцать. Путешествие начинается.</p>${btn("Отправиться дальше","completeChapter(0,chapter2)")}`);}
-
-const sparkOptions=[["🚶","Прогулки"],["💃","Танцы"],["🎵","Музыка"],["✈️","Путешествия"],["🎨","Творчество"],["👭","Друзья"],["📚","Чтение"],["🕯️","Уютные вечера"],["🌷","Забота о себе"],["🌱","Обучение"],["🌙","Время наедине с собой"],["🍓","Вкусная еда"],["❤️","Близкие"],["🌊","Природа"]];
+${hero("Таинственное приглашение","ГЛАВА ПЕРВАЯ", "chapter1_room.png")}
+<div class="story"><p>В один из зимних вечеров, когда за окном медленно кружатся снежинки, ты замечаешь на подоконнике необычный конверт. Он словно хранит внутри маленькое солнце. На печати — золотая снежинка, а на обратной стороне нет ни имени, ни адреса.</p><p>Стоит тебе прикоснуться к конверту, как по комнате разливается мягкий свет. Письмо раскрывается само собой. На старинной бумаге проступают слова:</p><p><em>«Есть желания, которые тихо ждут своего часа. Есть мечты, которым не нужны обещания — им нужно немного твоего внимания. Если ты готова прислушаться к себе, приходи в Мастерскую желаний. Дорогу найдёт та, которая позволит себе помечтать».</em></p></div>
+${img("chapter1_door.png","Дверь в волшебное путешествие")}
+${panel(`<h3>Перед дорогой — несколько вопросов</h3><p class="small">Не ищи правильные ответы. Записывай первое, что приходит, или просто размышляй.</p><label>Чего мне хочется больше в следующем году?</label><textarea id="start1" placeholder="Мне хочется больше..."></textarea><label>Какие приятные события я хотела бы пригласить в свою жизнь?</label><textarea id="start2" placeholder="Я была бы рада..."></textarea><label>Что я давно хотела попробовать, но откладывала?</label><textarea id="start3" placeholder="Мне давно интересно..."></textarea>`)}
+<div class="story"><p>Когда ты заканчиваешь, снежинка на конверте вспыхивает золотом. За окном среди снежных хлопьев появляется тонкая светящаяся дорожка. Кажется, она ведёт именно туда, где тебя уже ждут.</p></div>
+${starline()}${btn("Отправиться дальше","completeChapter(0,chapter2)")}`);}
 function chapter2(){state.page="1";show(`
-${hero("Сад энергии","ГЛАВА ВТОРАЯ",chapters[1].image)}
-<p>Дорога приводит тебя в зимний сад. На ветвях деревьев мерцают маленькие огоньки. Каждый из них напоминает о чём-то приятном: о любимой музыке, прогулке, встрече или минуте тишины.</p>
-<p>Хранительница сада улыбается: «Источники радости иногда совсем рядом. Достаточно заметить их и позволить им чаще появляться в обычных днях».</p>
-${panel(`<h3>Собери свои искорки</h3><p class="small">Выбери то, что приносит удовольствие, вдохновение или помогает восстановить силы.</p><div class="grid">${sparkOptions.map(([e,t])=>`<button class="tile ${state.sparks.includes(t)?"selected":""}" onclick="toggleSpark('${t}',this)"><span class="emoji">${e}</span>${t}</button>`).join("")}</div><label>Что ещё наполняет тебя?</label><input id="customSpark" type="text" placeholder="Добавь свой вариант" value="${safe(state.customSpark)}">`)}
-<p>Какую из выбранных искорок ты хотела бы чаще приглашать в свою жизнь?</p>${btn("Сохранить мои искорки","saveSparks()")}`);}
-function toggleSpark(name,el){if(state.sparks.includes(name)){state.sparks=state.sparks.filter(x=>x!==name);el.classList.remove("selected");}else{state.sparks.push(name);el.classList.add("selected");}}
-function saveSparks(){state.customSpark=document.getElementById("customSpark").value.trim();if(state.customSpark&&!state.sparks.includes(state.customSpark))state.sparks.push(state.customSpark);completeChapter(1,chapter3);}
-
-function chapter3(){state.page="2";show(`
-${hero("Мастерская вдохновения","ГЛАВА ТРЕТЬЯ",chapters[2].image)}
-<p>За садом ты находишь небольшую мастерскую. Внутри тепло, пахнет деревом и красками. На большом столе лежит чистый лист бумаги.</p>
-<p>«Здесь мы создадим цветок твоих ресурсов, — говорит Хранительница. — Каждый лепесток может напоминать о том, что радует, вдохновляет и помогает чувствовать вкус жизни».</p>
-${panel(`<h3>Арт-практика «Цветок моих ресурсов»</h3><p>Возьми лист А4 и нарисуй большой цветок с 8–10 лепестками.</p><p>В центре напиши: <strong>«Мои источники радости и энергии».</strong></p><p>На каждом лепестке запиши то, что приносит тебе удовольствие, вдохновение или помогает отдохнуть.</p><p class="small">Это могут быть любимые занятия, места, люди, маленькие радости, мечты, привычки или приятные моменты.</p><p>Раскрась цветок, укрась его узорами, символами и рисунками. Не обязательно заполнять все лепестки. Делай так, как хочется именно тебе.</p>`)}
-<p>Когда цветок будет готов, задержи на нём взгляд. Это твоя личная карта маленьких источников радости.</p>${btn("Мой цветок готов","completeChapter(2,chapter4)")}`);}
-
+${hero("Сад энергии","ГЛАВА ВТОРАЯ","bg_light.png")}
+<div class="story"><p>Светящаяся дорожка приводит тебя в сад, укрытый пушистым снегом. Здесь удивительно тихо, но сад совсем не спит: на ветвях мерцают сотни маленьких огоньков. Стоит приблизиться к одному из них — и внутри вспыхивает тёплая картинка: прогулка, любимая песня, смех подруги, запах свежего хлеба, дорога к морю.</p><p>Из-за заснеженной арки выходит Хранительница сада. В её ладонях светятся крошечные искры.</p><p><em>«Это напоминания о том, что возвращает нам вкус жизни, — говорит она. — Иногда энергия приходит не из грандиозных событий, а из простых вещей, которым мы разрешаем быть в наших днях».</em></p></div>
+${img("chapter3_guardian.png","Хранительница волшебного сада")}
+${panel(`<h3>Собери свои искорки</h3><p class="small">Выбирай картинки, которые напоминают о том, что приносит удовольствие, вдохновение или помогает восстановить силы. Можно выбрать несколько.</p><div class="grid sparkGrid">${sparkOptions.map(([t,f],i)=>`<button type="button" class="tile ${state.sparks.includes(t)?"selected":""}" onclick="toggleSpark(${i},this)"><img src="${IMG+f}" alt="${safe(t)}" loading="lazy"><span>${safe(t)}</span></button>`).join("")}</div><label>А что ещё зажигает твою искорку?</label><input id="customSpark" type="text" placeholder="Добавь свой вариант" value="${safe(state.customSpark)}">`)}
+<div class="story"><p>Хранительница предлагает тебе выбрать одну искорку, которую особенно хочется чаще видеть в своей повседневности. Не обязательно менять всю жизнь — иногда достаточно дать одному приятному занятию немного больше места.</p></div>
+${starline()}${btn("Сохранить мои искорки","saveSparks()")}`);}
+function toggleSpark(i,el){const name=sparkOptions[i][0];if(state.sparks.includes(name)){state.sparks=state.sparks.filter(x=>x!==name);el.classList.remove("selected");}else{state.sparks.push(name);el.classList.add("selected");}}
+function saveSparks(){const el=document.getElementById("customSpark");state.customSpark=el?el.value.trim():state.customSpark;if(state.customSpark&&!state.sparks.includes(state.customSpark))state.sparks.push(state.customSpark);completeChapter(1,chapter3);}
+  function chapter3(){state.page="2";show(`
+${hero("Мастерская вдохновения","ГЛАВА ТРЕТЬЯ","chapter3_workshop.png")}
+<div class="story"><p>За садом ты находишь маленькую мастерскую. В окнах мерцает тёплый свет, а внутри пахнет бумагой, деревом и красками. На столе лежит чистый лист, рядом — коробочка с карандашами.</p><p>«В этом месте не оценивают красоту рисунков, — улыбается Хранительница. — Здесь каждый создаёт свой особенный знак. Он будет напоминать о том, что уже наполняет жизнь теплом».</p></div>
+${img("resource_flower_example.png","Пример цветка ресурсов")}
+${panel(`<h3>Арт-практика «Цветок моих ресурсов»</h3><p>Возьми лист А4 и нарисуй большой цветок с 8–10 лепестками.</p><p>В центре напиши: <strong>«Мои источники радости и энергии».</strong></p><p>На каждом лепестке запиши то, что приносит тебе удовольствие, вдохновение или помогает отдохнуть. Это могут быть занятия, места, люди, маленькие радости, мечты или привычки.</p><p>Раскрась цветок, укрась его узорами, символами и рисунками. Не обязательно заполнять все лепестки. Здесь нет правильного или неправильного результата — пусть он будет именно твоим.</p>`)}
+${img("resource_flower_ready.png","Цветок ресурсов")}
+<div class="story"><p>Когда цветок будет готов, положи карандаш и немного посмотри на него. Возможно, среди лепестков есть то, чему давно хотелось уделить больше внимания. Это не список обязанностей, а напоминание: в твоей жизни уже есть источники радости, к которым можно возвращаться.</p></div>
+${starline()}${btn("Мой цветок готов","completeChapter(2,chapter4)")}`);}
 function chapter4(){state.page="3";show(`
-${hero("Дворец желаний","ГЛАВА ЧЕТВЁРТАЯ",chapters[3].image)}
-<p>За садом появляется дворец, окна которого светятся золотом. Внутри — галерея образов. Здесь можно собрать собственную карту желаний: не как список обязательств, а как напоминание о том, что тебе интересно и важно.</p>
-${panel(`<h3>Выбери образы для своей карты</h3><p class="small">Нажимай на изображения, которые хочется включить в свою карту.</p><div class="grid">${wishPictures.map(([file,title],i)=>`<button class="tile ${state.wishPictures.includes(i)?"selected":""}" onclick="toggleWishPicture(${i},this)"><img src="${IMG+file}" alt="${safe(title)}" loading="lazy" onerror="this.style.display='none'">${safe(title)}</button>`).join("")}</div><label>Название моей карты</label><input id="wishTitle" type="text" placeholder="Например: Мой год возможностей" value="${safe(state.wishTitle)}"><label>Мои желания, слова и фразы</label><textarea id="wishText" placeholder="Напиши то, что хочется видеть на своей карте...">${safe(state.wishText)}</textarea>`)}
-<div class="notice">Перед закрытием или обновлением страницы обязательно скачай готовую карту на телефон. Несохранённая карта может исчезнуть.</div>
-<div id="cardPreview"></div>
-${btn("Собрать и скачать карту","downloadWishCard()")}
+${hero("Дворец желаний","ГЛАВА ЧЕТВЁРТАЯ","chapter4_palace.png")}
+<div class="story"><p>Тропа приводит тебя к дворцу, окна которого светятся золотом. Внутри — просторная галерея образов. На стенах оживают картины: уютные дома, дальние берега, любимые люди, новые занятия, путешествия и мечты.</p><p>Хранительница раскрывает перед тобой большую книгу. «Здесь можно собрать свою карту желаний. Не как список обещаний и требований к себе, а как красивое напоминание о том, что тебе интересно, дорого и важно».</p></div>
+${img("chapter4_table.png","Стол для создания карты желаний")}
+${panel(`<h3>Выбери образы для своей карты</h3><p class="small">Нажимай на изображения, которые хочется включить в свою карту. Можно выбрать до 12 картинок.</p><div class="grid">${wishPictures.map(([file,title],i)=>`<button type="button" class="tile ${state.wishPictures.includes(i)?"selected":""}" onclick="toggleWishPicture(${i},this)"><img src="${IMG+file}" alt="${safe(title)}" loading="lazy">${safe(title)}</button>`).join("")}</div><label>Название моей карты</label><input id="wishTitle" type="text" placeholder="Например: Мой год возможностей" value="${safe(state.wishTitle)}"><label>Мои желания, слова и фразы</label><textarea id="wishText" placeholder="Напиши слова, которые хочется видеть на своей карте...">${safe(state.wishText)}</textarea>`)}
+<div class="notice">Сначала собери и посмотри готовую карту, затем сохрани её на телефон. Карта создаётся прямо в браузере и не хранится на сервере. Если закроешь или обновишь страницу, выбранные изображения могут сброситься.</div>
+<div id="boardPreview"></div>
+${btn("Собрать и посмотреть карту","buildWishBoard()")}
 ${btn("Продолжить путешествие","saveWishBoard()",true)}`);}
-
-function toggleWishPicture(i,el){if(state.wishPictures.includes(i)){state.wishPictures=state.wishPictures.filter(x=>x!==i);el.classList.remove("selected");}else{state.wishPictures.push(i);el.classList.add("selected");}}
-function getBoardValues(){state.wishTitle=document.getElementById("wishTitle").value.trim()||"Мой год возможностей";state.wishText=document.getElementById("wishText").value.trim();}
-function drawWrappedText(ctx,text,x,y,maxWidth,lineHeight){if(!text)return;const words=text.split(/\s+/);let line="",yy=y;for(const word of words){const test=line+word+" ";if(ctx.measureText(test).width>maxWidth&&line){ctx.fillText(line,x,yy);line=word+" ";yy+=lineHeight;}else line=test;}if(line)ctx.fillText(line,x,yy);}
-async function downloadWishCard(){
-  getBoardValues();
-  const selected=state.wishPictures.slice(0,12);
-  if(state.wishPictures.length>12){document.getElementById("cardPreview").innerHTML='<p class="small">Для красивой композиции на скачиваемой карте используются первые 12 выбранных изображений. На экране можно выбрать больше.</p>';}
-  const canvas=document.createElement("canvas");canvas.width=1200;canvas.height=1500;const ctx=canvas.getContext("2d");
-  const gradient=ctx.createLinearGradient(0,0,1200,1500);gradient.addColorStop(0,"#f6e9cc");gradient.addColorStop(1,"#c9b58e");ctx.fillStyle=gradient;ctx.fillRect(0,0,1200,1500);
-  ctx.fillStyle="#263653";ctx.textAlign="center";ctx.font="52px Georgia";ctx.fillText(state.wishTitle,600,105,1080);ctx.font="27px Georgia";ctx.fillText("Мои желания и направления",600,160);
-  const cols=3,cellW=350,cellH=260,startX=75,startY=205;
-  const loaded=await Promise.all(selected.map(([file])=>new Promise(resolve=>{const im=new Image();im.onload=()=>resolve({im,ok:true});im.onerror=()=>resolve({ok:false});im.src=IMG+file;})));
-  loaded.forEach((item,i)=>{if(!item.ok)return;const x=startX+(i%cols)*cellW,y=startY+Math.floor(i/cols)*cellH;ctx.drawImage(item.im,x,y,300,190);ctx.fillStyle="#263653";ctx.font="22px Georgia";ctx.fillText(wishPictures[selected[i]][1],x+150,y+220,300);});
-  ctx.fillStyle="#263653";ctx.font="25px Georgia";drawWrappedText(ctx,state.wishText,600,1300,1000,35);ctx.font="22px Georgia";ctx.fillText("Мой путь начинается с маленького шага",600,1450);
-  try{const blob=await new Promise(resolve=>canvas.toBlob(resolve,"image/png"));if(!blob)throw new Error("Не удалось создать файл");const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download="karta-zhelaniy.png";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);document.getElementById("cardPreview").innerHTML='<p class="small">Карта сформирована. Проверь папку «Загрузки» или сохранённые файлы телефона.</p>';}catch(e){document.getElementById("cardPreview").innerHTML='<p class="small">Не удалось автоматически скачать карту в этом браузере. Попробуй ещё раз или сделай скриншот готовой композиции.</p>';}
-}
-  function saveWishBoard(){getBoardValues();completeChapter(3,chapter5);}
-
+function toggleWishPicture(i,el){if(state.wishPictures.includes(i)){state.wishPictures=state.wishPictures.filter(x=>x!==i);el.classList.remove("selected");}else if(state.wishPictures.length>=12){alert("Для красивой композиции можно выбрать не больше 12 изображений.");}else{state.wishPictures.push(i);el.classList.add("selected");}}
+function getBoardValues(){const t=document.getElementById("wishTitle"),w=document.getElementById("wishText");if(t)state.wishTitle=t.value.trim();if(w)state.wishText=w.value.trim();if(!state.wishTitle)state.wishTitle="Мой год возможностей";}
+function wrapText(ctx,text,x,y,maxWidth,lineHeight,maxLines){if(!text)return;const words=text.split(/\s+/);let line="",yy=y,lines=0;for(const word of words){const test=line?line+" "+word:word;if(ctx.measureText(test).width>maxWidth&&line){ctx.fillText(line,x,yy);yy+=lineHeight;lines++;line=word;if(lines>=maxLines)return;}else line=test;}if(line)ctx.fillText(line,x,yy);}
+function loadImage(file){return new Promise(resolve=>{const im=new Image();im.onload=()=>resolve(im);im.onerror=()=>resolve(null);im.src=IMG+file;});}
+async function buildWishBoard(){getBoardValues();const box=document.getElementById("boardPreview");box.innerHTML='<div class="notice">Собираю твою карту…</div>';const canvas=document.createElement("canvas");canvas.width=1200;canvas.height=1500;const ctx=canvas.getContext("2d");if(!ctx){box.innerHTML='<p class="small">Браузер не смог подготовить изображение. Попробуй обновить страницу.</p>';return;}
+const grad=ctx.createLinearGradient(0,0,1200,1500);grad.addColorStop(0,"#fff6e5");grad.addColorStop(1,"#e7d5ad");ctx.fillStyle=grad;ctx.fillRect(0,0,1200,1500);ctx.fillStyle="#263653";ctx.textAlign="center";ctx.font="bold 56px Georgia";wrapText(ctx,state.wishTitle,600,95,1040,66,2);ctx.font="28px Georgia";ctx.fillText("Мои желания и направления",600,185);
+const chosen=state.wishPictures.slice(0,12);const loaded=await Promise.all(chosen.map(i=>loadImage(wishPictures[i][0])));const startY=235,cols=3,cellW=350,cellH=260,startX=75;let drawn=0;for(let i=0;i<loaded.length;i++){const im=loaded[i];if(!im)continue;const col=drawn%cols,row=Math.floor(drawn/cols),x=startX+col*cellW,y=startY+row*cellH;const ratio=Math.min(300/im.width,185/im.height);const w=im.width*ratio,h=im.height*ratio;ctx.save();ctx.fillStyle="#ffffff";ctx.shadowColor="#00000022";ctx.shadowBlur=12;ctx.fillRect(x,y,300,190);ctx.restore();ctx.drawImage(im,x+(300-w)/2,y+(190-h)/2,w,h);ctx.fillStyle="#263653";ctx.font="23px Georgia";ctx.fillText(wishPictures[chosen[i]][1],x+150,y+225,300);drawn++;}
+ctx.fillStyle="#263653";ctx.font="27px Georgia";wrapText(ctx,state.wishText,600,1210,1000,38,5);ctx.font="24px Georgia";ctx.fillText("Мой путь начинается с маленького шага",600,1450);
+try{state.boardDataUrl=canvas.toDataURL("image/png");box.innerHTML=`<div class="boardPreview"><h3>Твоя карта желаний готова</h3><img src="${state.boardDataUrl}" alt="Готовая карта желаний"><a href="${state.boardDataUrl}" download="karta-zhelaniy.png">Сохранить карту на устройство</a><p class="small">Если ссылка не скачивает файл на iPhone: нажми и удерживай изображение карты, затем выбери «Сохранить в Фото» или «Сохранить в Файлы».</p></div>`;box.scrollIntoView({behavior:"smooth",block:"start"});}catch(e){box.innerHTML='<p class="small">Не удалось подготовить изображение в этом браузере. Попробуй выбрать меньше картинок.</p>';}}
+function saveWishBoard(){getBoardValues();completeChapter(3,chapter5);}
 function chapter5(){state.page="4";show(`
-${hero("Дорога возможностей","ГЛАВА ПЯТАЯ",chapters[4].image)}
-<p>За дворцом начинается дорога. Она уходит вдаль, и на каждом её повороте загорается маленький фонарь.</p>
-<p>Хранительница говорит: «Желание становится ближе, когда у него появляется первый шаг. Не нужно сразу знать весь путь. Достаточно выбрать одно направление и то, что ты можешь сделать для него».</p>
+${hero("Дорога возможностей","ГЛАВА ПЯТАЯ","chapter5_road.png")}
+<div class="story"><p>За дворцом начинается дорога. Она уходит вдаль, а вдоль неё загораются маленькие фонари. На каждом — словно невидимая надпись: «интерес», «выбор», «попробовать», «начать».</p><p>Хранительница идёт рядом и говорит: «Желание становится ближе, когда у него появляется первый шаг. Не нужно заранее знать весь путь. Достаточно выбрать направление и заметить то, что уже сейчас тебе по силам».</p></div>
+${img("chapter5_notebook.png","Открытый блокнот на пути к мечте")}
 ${panel(`<h3>Выбери одно желание</h3><p class="small">Посмотри на свою карту и выбери одно желание, которому сейчас хочется уделить внимание.</p><label>Моё желание</label><textarea id="wishInput" placeholder="Я хочу...">${safe(state.wish)}</textarea><label>Какой один небольшой шаг я могу сделать в ближайшее время?</label><textarea id="actionInput" placeholder="Например: узнать, найти информацию, выделить время...">${safe(state.action)}</textarea>`)}
-<p>Пусть этот шаг будет посильным и конкретным. Не нужно обещать себе больше, чем сейчас хочется и можется.</p>${btn("Сохранить мой первый шаг","saveAction()")}`);}
+<div class="story"><p>Пусть этот шаг будет небольшим и добрым к тебе. Он не должен доказывать твою силу или требовать от тебя невозможного. Иногда первый шаг — это просто разрешить себе начать.</p></div>
+${starline()}${btn("Сохранить мой первый шаг","saveAction()")}`);}
 function saveAction(){state.wish=document.getElementById("wishInput").value.trim();state.action=document.getElementById("actionInput").value.trim();completeChapter(4,chapter6);}
-
-function chapter6(){state.page="5";show(`
-${hero("Подарок из будущего","ГЛАВА ШЕСТАЯ",chapters[5].image)}
-<p>Путешествие подходит к завершению. Ты входишь в тихую комнату, где на столе лежит золотой конверт.</p>
-<p>Представь себя в будущем — в той жизни, к которой ты хочешь приблизиться. Не обязательно представлять всё подробно. Возможно, ты увидишь только настроение, место или одно приятное ощущение.</p>
-<p>Посмотри на эту версию себя. Что в ней тебе нравится? Что она уже разрешила себе? Какие маленькие шаги помогли ей прийти туда?</p>
-${panel(`<h3>Послание от себя из будущего</h3><p>Твоя версия из будущего хочет сказать тебе что-то важное. Возможно, поддержать тебя или напомнить о чём-то важном.</p><label>Что бы ты хотела услышать от себя из будущего?</label><textarea id="futureInput" placeholder="Несколько слов или предложений...">${safe(state.futureWords)}</textarea><p class="small">Если сейчас не хочется ничего писать — просто пропусти это задание.</p>`)}
-${btn("Получить своё письмо","makeLetter()")}`);}
-function makeLetter(){state.futureWords=document.getElementById("futureInput").value.trim();const personal=state.futureWords?`«${safe(state.futureWords)}»`:"Я хочу напомнить тебе: у тебя есть право идти в своём темпе, замечать хорошее и выбирать то, что действительно важно для тебя.";show(`
-${hero("Письмо из будущего","ТВОЁ ЛИЧНОЕ ПОСЛАНИЕ","")}
-${panel(`<p>Привет, моя дорогая!</p><p>${personal}</p><p>Я хочу, чтобы ты помнила: большие перемены не всегда начинаются с больших решений. Иногда всё начинается с внимания к себе, с маленького желания, которому ты позволила стать важным.</p><p>Не торопи себя. Замечай то, что радует. Доверяй своим интересам и не обесценивай маленькие шаги.</p><p>Пусть в твоей жизни будет больше того, что делает её твоей.</p><p>С теплом,<br>ты из будущего ✨</p>`)}
-<p>Рядом с письмом лежит ещё один подарок — образ, который может стать для тебя символом поддержки.</p>${btn("Выбрать ресурсную МАК-карту","macChoice()")}`);}
+  function chapter6(){state.page="5";show(`
+${hero("Подарок из будущего","ГЛАВА ШЕСТАЯ","chapter6_future_self.png")}
+<div class="story"><p>В конце дороги стоит небольшой дом с тёплыми окнами. Внутри тихо и уютно. На столе лежит золотой конверт, а рядом — зеркало в старинной раме.</p><p>Посмотри в зеркало и представь себя в будущем — в той жизни, к которой хочется приблизиться. Необязательно видеть всё подробно. Возможно, появится только настроение, место или одно приятное ощущение.</p><p>Посмотри на эту версию себя. Что в ней тебе нравится? Что она уже разрешила себе? Какие небольшие шаги помогли ей прийти туда?</p></div>
+${img("chapter6_mirror.png","Волшебное зеркало")}
+${panel(`<h3>Послание от себя из будущего</h3><p>Представь, что эта версия тебя может отправить тебе несколько строк поддержки. Что бы тебе хотелось услышать?</p><label>Мои слова из будущего</label><textarea id="futureInput" placeholder="Несколько слов или предложений...">${safe(state.futureWords)}</textarea><p class="small">Если сейчас не хочется ничего писать — можно оставить поле пустым.</p>`)}
+${starline()}${btn("Открыть письмо из будущего","makeLetter()")}`);}
+function makeLetter(){const el=document.getElementById("futureInput");state.futureWords=el?el.value.trim():state.futureWords;const personal=state.futureWords?`«${safe(state.futureWords)}»`:`«Я хочу напомнить тебе: у тебя есть право идти в своём темпе, замечать хорошее и выбирать то, что действительно важно для тебя».`;show(`
+${hero("Письмо из будущего","ТВОЁ ЛИЧНОЕ ПОСЛАНИЕ","chapter6_letter.png")}
+${panel(`<p>Привет, моя дорогая!</p><p>Я пишу тебе из того времени, где многое стало чуть яснее. И первое, что хочу сказать: ${personal}</p><p>Не думай, что всё важное должно случиться сразу. Большие перемены часто начинаются с тихого решения быть внимательнее к себе, с желания, которому ты позволила стать важным, с маленького шага, который никто, кроме тебя, может даже не заметить.</p><p>Пожалуйста, не обесценивай то, что уже получается. Замечай свои интересы, береги то, что приносит радость, и оставляй в жизни место для нового.</p><p>Пусть впереди будет больше того, что делает твою жизнь именно твоей.</p><p>С теплом,<br>ты из будущего ✨</p>`)}
+<div class="story"><p>Когда письмо растворяется в золотистом свете, ты замечаешь рядом маленькую шкатулку. Внутри — несколько закрытых образов. Хранительница шепчет: «Выбери один. Не пытайся угадать значение — просто доверься тому, к чему потянется рука. Иногда образ помогает увидеть то, о чём мы ещё не успели подумать».</p></div>
+${img("chapter6_giftbox.png","Подарочная шкатулка")}
+${btn("Выбрать МАК-карту","macChoice()")}`);}
 function macChoice(){state.page="5";show(`
-${hero("Выбери свой образ","РЕСУРСНАЯ МАК-КАРТА","")}
-<p>Посмотри на изображения и выбери то, которое сейчас особенно откликается. Это метафорические карты для размышления и поддержки, а не предсказание или диагностика.</p>
-<div class="grid">${macCards.map((m,i)=>`<button class="tile" onclick="selectMac(${i})"><img src="${IMG+m[1]}" alt="${safe(m[0])}" loading="lazy" onerror="this.style.display='none'">${safe(m[0])}</button>`).join("")}</div>`);}
+${hero("Твой образ поддержки","ПОСЛЕДНИЙ ПОДАРОК","bg_rewards.png")}
+<div class="story"><p>Перед тобой лежат закрытые карты. У каждой одна и та же рубашка — её изображение пока скрыто. Выбери ту, которая первой привлекла внимание. Карта откроется только после твоего выбора.</p><p class="small">Метафорическая карта — повод для размышления, а не предсказание и не диагностика. Ты сама решаешь, что в её образе откликается именно тебе.</p></div>
+<div class="grid macGrid">${macCards.map((m,i)=>`<button type="button" class="tile" onclick="selectMac(${i})" aria-label="Выбрать закрытую карту ${i+1}"><img src="${IMG}mac_back.png" alt="Закрытая МАК-карта"><span>Выбрать карту ${i+1}</span></button>`).join("")}</div>`);}
 function selectMac(i){state.mac=i;const m=macCards[i];show(`
-${hero(m[0],"ТВОЯ РЕСУРСНАЯ КАРТА","")}
-${image(m[1],m[0])}${panel(`<p>${m[2]}</p>`)}
-<p>Пусть этот образ станет небольшим напоминанием о том, что ты хочешь поддерживать в своей жизни.</p>${btn("Завершить путешествие","completeChapter(5,finale)")}`);}
-
+${hero("Твоя карта открыта","РЕСУРСНЫЙ ОБРАЗ", "chapter6_giftbox.png")}
+<div class="macReveal"><img src="${IMG+m[1]}" alt="МАК-карта ${safe(m[0])}"><h3>${safe(m[0])}</h3><p>${safe(m[2])}</p></div>
+<div class="story"><p>Побудь немного с этим образом. Что в нём тебе особенно нравится? На что он напоминает обратить внимание? Ты можешь забрать из этой встречи только ту мысль, которая действительно подходит тебе.</p></div>
+${starline()}${btn("Завершить путешествие","completeChapter(5,finale)")}`);}
 function finale(){state.page="final";show(`
-<div class="hero">${image("final_journey.png","Путешествие завершено","")}<div class="heroContent"><div class="small">ТВОЁ ПУТЕШЕСТВИЕ ЗАВЕРШЕНО</div><h2>Ты собрала свои желания</h2><p>И впереди — твой собственный путь</p></div></div>
+<div class="hero">${img("final_journey.png","Путешествие завершено","")}<div class="heroContent"><div class="small">ТВОЁ ПУТЕШЕСТВИЕ ЗАВЕРШЕНО</div><h2>Ты собрала свои желания</h2><p>И впереди — твой собственный путь</p></div></div>
 ${starline()}
-<p>Ты прошла все главы, собрала искорки радости, создала цветок ресурсов, выбрала желания и наметила первый шаг.</p>
-<p>Пусть эта карта напоминает тебе не только о том, чего ты хочешь достичь, но и о том, как ты хочешь чувствовать себя по дороге.</p>
+<div class="story"><p>Ты прошла все главы, собрала искорки радости, создала цветок ресурсов, выбрала образы для своей карты, наметила первый шаг и получила послание из будущего.</p><p>Пусть эта карта напоминает тебе не только о том, чего ты хочешь достичь, но и о том, как ты хочешь чувствовать себя по дороге. Не обязательно спешить. Можно возвращаться к своим желаниям и менять маршрут, если этого захочется.</p></div>
 ${panel(`<h3>Твои ориентиры</h3><p><strong>Желание:</strong><br>${safe(state.wish||"Ты можешь вернуться к своим записям и выбрать его.")}</p><p><strong>Первый шаг:</strong><br>${safe(state.action||"Выбери его тогда, когда будешь готова.")}</p><p><strong>Ресурсная карта:</strong><br>${state.mac!==null?safe(macCards[state.mac][0]):"Твой образ поддержки"}</p>`)}
-<div class="notice">Перед закрытием игры сохрани свою карту желаний на телефон. Карта не хранится на сервере и может исчезнуть после закрытия страницы.</div>
-<h3>Возвращение в свой мир</h3><p>Почувствуй опору под ногами. Не торопясь назови про себя:</p>
-<p>5 предметов, которые видишь;<br>4 ощущения в теле;<br>3 звука вокруг;<br>2 запаха;<br>1 приятную вещь, за которую можешь поблагодарить этот момент.</p>
-<p>Сделай спокойный вдох и выдох. Ты снова здесь, в своём пространстве.</p>
-${panel(`<h3>Подарок для тебя 🎁</h3><p>Благодарю тебя за это путешествие!</p><p>Для тебя действует скидка <strong>30%</strong> на индивидуальную консультацию.</p><p class="small">Чтобы воспользоваться предложением, напиши мне в Telegram.</p>${btn("Написать Диане","contact()")}`)}
+<div class="notice">Если ты ещё не сохранила карту желаний, вернись к главе «Дворец желаний» до закрытия страницы. Карта не хранится на сервере.</div>
+<h3 style="color:#e8d19c">Возвращение в свой мир</h3><p>Почувствуй опору под ногами. Не торопясь назови про себя:</p><p>5 предметов, которые видишь;<br>4 ощущения в теле;<br>3 звука вокруг;<br>2 запаха;<br>1 приятную вещь, за которую можешь поблагодарить этот момент.</p><p>Сделай спокойный вдох и выдох. Ты снова здесь, в своём пространстве.</p>
+${panel(`<h3>Подарок для тебя</h3><p>Благодарю тебя за это путешествие!</p><p>Для тебя действует скидка <strong>30%</strong> на индивидуальную консультацию.</p><p class="small">Чтобы воспользоваться предложением, напиши мне в Telegram.</p>${btn("Написать Диане","contact()")}`)}
 ${btn("Подарить подруге это путешествие","shareGame()",true)}
 <p class="small" style="text-align:center">Пусть в новом году будет больше того, что действительно важно для тебя. ✨</p>
-<div class="notice">И помни: ты можешь остановиться, пропустить любое упражнение и позаботиться о себе. Если игра вызвала сильные чувства, сделай паузу и при необходимости обратись за поддержкой к квалифицированному специалисту.</div>`);}
-
-function contact(){window.open("https://t.me/psychologdiana","_blank");}
-async function shareGame(){
-  const url=window.location.href;
-  if(navigator.share){try{await navigator.share({title:"Карта желаний",text:"Приглашаю тебя в новогоднее путешествие «Карта желаний»!",url});}catch(e){}}
-  else{window.open("https://t.me/share/url?url="+encodeURIComponent(url)+"&text="+encodeURIComponent("Приглашаю тебя в новогоднее путешествие «Карта желаний»!"),"_blank");}
-}
-
+<div class="notice">Ты можешь остановиться, пропустить любое упражнение и позаботиться о себе. Если игра вызвала сильные чувства, сделай паузу и при необходимости обратись за поддержкой к квалифицированному специалисту.</div>`);}
+function contact(){window.open("https://t.me/psychologdiana","_blank","noopener");}
+async function shareGame(){const url=GAME_URL;if(navigator.share){try{await navigator.share({title:"Карта желаний",text:"Приглашаю тебя в новогоднее путешествие «Карта желаний»!",url});return;}catch(e){if(e&&e.name==="AbortError")return;}}const shareUrl="https://t.me/share/url?url="+encodeURIComponent(url)+"&text="+encodeURIComponent("Приглашаю тебя в новогоднее путешествие «Карта желаний»!");window.open(shareUrl,"_blank","noopener");}
 intro();
 </script>
-</body>
-</html>
+</body></html>
