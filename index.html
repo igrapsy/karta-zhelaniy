@@ -10,28 +10,14 @@
 :root{--night:#172440;--gold:#e8d19c;--cream:#fff5e5;--ink:#293650;--paper:#fff8ec}
 *{box-sizing:border-box}
 body{
- margin:0;
- min-height:100vh;
- background-color:#10213d;
- background-image:
- radial-gradient(2px 2px at 20px 30px,#fff8d8aa 45%,transparent 55%),
- radial-gradient(1.5px 1.5px at 90px 70px,#fff 45%,transparent 55%),
- radial-gradient(2px 2px at 150px 120px,#e8d19c99 45%,transparent 55%),
- radial-gradient(ellipse at 50% 0%,#49678c 0%,#263e64 42%,#101d37 100%);
- background-size:180px 160px,230px 190px,270px 220px,100% 100%;
- background-attachment:fixed;
- color:var(--cream);
- font-family:Georgia,"Times New Roman",serif
+ margin:0;min-height:100vh;background-color:#10213d;
+ background-image:linear-gradient(180deg,rgba(10,22,43,.42),rgba(10,22,43,.64)),url("images/new-year-bg.png");
+ background-size:cover;background-position:center top;background-repeat:no-repeat;background-attachment:fixed;
+ color:var(--cream);font-family:Georgia,"Times New Roman",serif
 }
 body:before{
- content:"";
- position:fixed;
- inset:0;
- pointer-events:none;
- z-index:-1;
- background:
- radial-gradient(ellipse at 8% 18%,#d8eaff12,transparent 35%),
- radial-gradient(ellipse at 92% 72%,#f5d58b12,transparent 34%)
+ content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;
+ background:radial-gradient(ellipse at 8% 18%,#d8eaff12,transparent 35%),radial-gradient(ellipse at 92% 72%,#f5d58b12,transparent 34%)
 }
 button,input,textarea{font:inherit}
 #app{max-width:790px;margin:auto;padding:14px 15px 42px}
@@ -47,28 +33,23 @@ h3{font-size:21px;color:var(--ink);margin:4px 0 12px}
 p{font-size:17px;line-height:1.7;margin:12px 0;color:inherit}
 .small{font:13px/1.6 Arial,sans-serif;color:#e1d6c6}
 .hero{position:relative;isolation:isolate;min-height:220px;border:1px solid #e8d19c77;border-radius:21px;overflow:hidden;display:flex;align-items:flex-end;padding:24px;margin:10px 0 20px;background:#293b5c}
-.coverHero{display:block;min-height:0;padding:0;background:#263b59}
-.coverHero>img{position:relative;inset:auto;display:block;width:100%;height:auto;max-height:none;object-fit:contain;opacity:1;background:#263b59}
-.coverHero:after{display:none}
-.coverHero .heroContent{padding:15px 19px 18px;background:linear-gradient(110deg,#1c2e49,#2c4260);text-shadow:none}
-.coverHero .heroContent h1{margin:4px 0}
-.coverHero .heroContent p{color:#f4ead8}
-.introInvitation{margin:16px 0 20px;padding:10px;border:1px solid #e8d19c99;border-radius:20px;background:linear-gradient(135deg,#f5e6c4,#c5a96d);box-shadow:0 8px 28px #06132955}
-.introInvitation .artwork{max-height:none;object-fit:contain;margin:0;border:0;border-radius:12px}
-.giftDivider{height:1px;background:linear-gradient(90deg,transparent,#b79b65,transparent);margin:22px 0}
 .hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;opacity:.9}
 .hero:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#101c35e8,transparent 85%);z-index:-1}
 .heroContent{width:100%;text-shadow:0 2px 8px #101c35}
 .heroContent p{margin:6px 0}
+.coverHero{display:block;min-height:0;padding:0;background:transparent;border:0;border-radius:0;overflow:visible;margin:0 0 16px}
+.coverHero>img{position:static;display:block;width:100%;height:auto;max-height:none;object-fit:contain;opacity:1;background:#263b59;border:1px solid #e8d19c88;border-radius:18px;box-shadow:0 12px 34px #06132988}
+.coverHero:after{display:none}
 .panel{padding:18px;border:1px solid #d9bd8070;border-radius:17px;background:var(--paper);color:var(--ink);margin:17px 0;box-shadow:0 7px 20px #06132922}
 .panel p,.panel label{color:var(--ink)}
 .panel .small{color:#59647a}
-.story{padding:17px 18px;border-radius:16px;background:linear-gradient(145deg,#243653f5,#1c2b47f5);border:1px solid #e8d19c55;margin:15px 0}
+.story{padding:17px 18px;border-radius:16px;background:linear-gradient(145deg,#243653f5,#1c2b47f5);border:1px solid #e8d19c77;margin:15px 0}
 .story p{color:#f7eddd}
-.notice{border-left:3px solid var(--gold);padding:12px 14px;background:#ffffff12;border-radius:0 11px 11px 0;font:13px/1.7 Arial,sans-serif;color:#eee4d5;margin:18px 0}
+.notice{border-left:3px solid var(--gold);padding:12px 14px;background:#172b49e8;border-radius:0 11px 11px 0;font:13px/1.7 Arial,sans-serif;color:#fff1d9;margin:18px 0}
 .btn{width:100%;display:block;margin:12px 0;padding:14px 17px;border-radius:28px;border:1px solid var(--gold);background:linear-gradient(135deg,#f0dfb7,#c9ad75);color:#1b2945;font-weight:bold;cursor:pointer}
 .btn.secondary{background:#ffffff12;color:var(--cream);box-shadow:none}
-.btn.back{background:#ffffff10;color:#f5e8d1;border-color:#e8d19c66;box-shadow:none;font-size:14px;padding:10px;margin:0 0 14px}
+.btn.back{background:#172b49e8;color:#fff1d9;border-color:#e8d19c88;box-shadow:none;font-size:14px;padding:10px;margin:0 0 14px}
+.giftButton{display:flex;align-items:center;justify-content:center;min-height:62px;padding:16px 20px;white-space:normal;overflow-wrap:anywhere;text-align:center;line-height:1.4;background:linear-gradient(135deg,#fff0c9,#d8b56e);color:#172440;border:2px solid #fff0c9;box-shadow:0 5px 18px #07152b88;font-size:16px;font-weight:700}
 input[type=text],textarea{width:100%;padding:13px;border-radius:11px;border:1px solid #b9a779;background:#fffdf8;color:#263653;margin:8px 0 14px}
 textarea{min-height:90px;resize:vertical;line-height:1.55}
 label{display:block;line-height:1.5;color:#263653;margin-top:10px}
@@ -77,13 +58,13 @@ label{display:block;line-height:1.5;color:#263653;margin-top:10px}
 .tile img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:9px;display:block;margin-bottom:8px;background:#e7dfd1}
 .tile.selected{border:2px solid #ad8843;background:#f8edcf;box-shadow:0 0 0 2px #e8d19c55}
 .tile:focus-visible,.btn:focus-visible{outline:3px solid white;outline-offset:3px}
-.artwork{display:block;width:100%;max-height:390px;object-fit:cover;border-radius:17px;margin:17px 0;border:1px solid #e8d19c55}
+.artwork{display:block;width:100%;max-height:390px;object-fit:contain;border-radius:17px;margin:17px 0;border:1px solid #e8d19c66;background:#fff8ec}
 .pictureStrip{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:15px 0}
-.pictureStrip img{width:100%;height:175px;object-fit:cover;border-radius:14px;border:1px solid #e8d19c55}
+.pictureStrip img{width:100%;height:175px;object-fit:contain;border-radius:14px;border:1px solid #e8d19c55;background:#fff8ec}
 .sparkGrid .tile{text-align:left;padding:8px}
 .sparkGrid .tile img{aspect-ratio:1.25;object-fit:cover}
 .sparkGrid .tile span{display:block;padding:0 3px 3px}
-.starBox{display:flex;align-items:center;justify-content:center;gap:7px;margin:17px auto 21px;padding:9px 13px;border:1px solid #e8d19c55;border-radius:17px;background:#172440aa;max-width:310px}
+.starBox{display:flex;align-items:center;justify-content:center;gap:7px;margin:17px auto 21px;padding:9px 13px;border:1px solid #e8d19c88;border-radius:17px;background:#172440dd;max-width:310px}
 .starBox img{width:27px;height:27px;object-fit:contain;opacity:.2}
 .starBox img.on{opacity:1;filter:drop-shadow(0 0 6px #f7d77d)}
 .starBox span{font:12px Arial,sans-serif;color:#f3dfb6;margin-left:5px}
@@ -91,18 +72,23 @@ label{display:block;line-height:1.5;color:#263653;margin-top:10px}
 .boardPreview img{display:block;width:100%;height:auto;border-radius:9px}
 .boardPreview a{display:block;text-align:center;margin:14px 0 5px;color:#263653;font:bold 15px Arial,sans-serif;text-decoration:underline}
 .macGrid .tile{padding:7px;background:linear-gradient(145deg,#e9d6ad,#c6ad7d)}
-.macGrid .tile img{width:100%;height:165px;aspect-ratio:auto;object-fit:cover;border-radius:9px}
+.macGrid .tile img{width:100%;height:165px;aspect-ratio:auto;object-fit:contain;border-radius:9px;background:#fff8ec}
 .macReveal{max-width:440px;margin:18px auto;padding:16px;border-radius:19px;background:#fff6e5;color:#263653;text-align:center;box-shadow:0 10px 30px #0003;animation:reveal .5s ease}
 .macReveal img{width:100%;max-height:390px;object-fit:contain;border-radius:12px}
 .macReveal p{color:#263653}
 @keyframes reveal{from{transform:rotateY(80deg);opacity:0}to{transform:rotateY(0);opacity:1}}
 .footer{text-align:center;color:#e5dccd;font:13px/1.7 Arial,sans-serif;margin-top:30px;padding:14px 12px;border:1px solid #d9c79a44;border-radius:12px;background:linear-gradient(110deg,#263b59ed,#344967e8);box-shadow:0 4px 16px #08172b35}
 .footer strong{font-weight:normal;color:#e8d19c}
-@media(max-width:430px){
+body.coverScreen{background:#172440}
+body.coverScreen:before{display:none}
+body.coverScreen #app{padding-top:12px}
+body.coverScreen .top,body.coverScreen .progress,body.coverScreen .footer{display:none}
+body.coverScreen .screen{padding-top:0}
+body.coverScreen .btn{margin-top:14px}
+@media(max-width:600px){
+ body{background-attachment:scroll}
  #app{padding:12px 11px 35px}
  .hero{min-height:195px;padding:19px}
- .coverHero{min-height:0;padding:0}
- .coverHero .heroContent{padding:13px 15px 16px}
  .panel{padding:15px}
  .grid{gap:8px}
  .pictureStrip img{height:140px}
@@ -132,12 +118,13 @@ const state={
  sparks:[],customSpark:"",
  wishPictures:[],wishTitle:"",wishText:"",
  wish:"",action:"",futureWords:"",
+ start1:"",start2:"",start3:"",
  mac:null,boardDataUrl:""
 };
 
 const pages={
- intro,chapter1,chapter2,chapter3,chapter4,chapter5,chapter6,
- letter:makeLetter,macChoice,final:finale
+ intro,welcome,chapter1,chapter2,chapter3,chapter4,chapter5,chapter6,
+ letter:makeLetter,macChoice,final:finale,macReveal
 };
 
 const wishPictures=[
@@ -235,13 +222,16 @@ function starline(){
  ).join("")}<span>${state.stars.length} / 6</span></div>`;
 }
 function updateProgress(){
- const n=state.page==="intro"?0:state.page==="final"?6:
+ const n=state.page==="intro"||state.page==="welcome"?0:state.page==="final"?6:
  Math.min(6,Number(state.page.replace("chapter",""))||0);
  progressBar.style.width=(n/6*100)+"%";
  chapterLabel.textContent=state.page==="intro"?"Начало":
- state.page==="final"?"Завершение":`Глава ${n}`;
+ state.page==="welcome"?"Приглашение":
+ state.page==="final"?"Завершение":
+ state.page==="letter"||state.page==="macChoice"||state.page==="macReveal"?"Подарок":`Глава ${n}`;
 }
 function show(html){
+ document.body.classList.toggle("coverScreen",state.page==="intro");
  content.innerHTML=`<div class="screen">${state.page!=="intro"?
  `<button class="btn back" type="button" onclick="goBack()">← Назад</button>`:""}${html}</div>`;
  updateProgress();
@@ -266,30 +256,32 @@ function completeChapter(number,nextName){
  if(!state.stars.includes(number))state.stars.push(number);
  go(nextName);
 }
+
 function intro(){
  state.page="intro";
  show(`
  <div class="hero coverHero">
- <img src="${IMG}cover.png" alt="Карта желаний" loading="eager">
- <div class="heroContent">
- <div class="small">✧ НОВОГОДНЕЕ СКАЗОЧНОЕ ПРИКЛЮЧЕНИЕ ✧</div>
- <h1>Карта желаний</h1>
- <p>Путешествие к тому, что хочется пригласить в свою жизнь</p>
+ <img src="${IMG}cover.png" alt="Обложка игры «Карта желаний»" loading="eager">
  </div>
- </div>
- <div class="introInvitation">
- ${img("invitation.png","Волшебное приглашение")}
- </div>
+ ${btn("Начать путешествие","go('welcome')")}`);
+}
+
+function welcome(){
+ state.page="welcome";
+ show(`
+ ${hero("Новогоднее путешествие","ДОБРО ПОЖАЛОВАТЬ В МАСТЕРСКУЮ ЖЕЛАНИЙ","invitation.png")}
  ${panel(`<h3>Приготовься к путешествию</h3>
  <p>Тебе понадобятся лист бумаги А4, цветные карандаши, фломастеры или краски, ручка. По желанию — блокнот.</p>
  <p>Устройся поудобнее, приготовь любимый напиток и выдели немного времени только для себя. Здесь не нужно торопиться: можно проходить главы в своём темпе, делать паузы и возвращаться к заданиям.</p>`)}
  <div class="notice">Эта игра создана для самопознания, вдохновения и творческого исследования желаний. Она не заменяет психотерапию или индивидуальную психологическую помощь. Ты можешь пропустить любое упражнение или остановить игру в любой момент. Если появятся сильные чувства, сделай паузу, позаботься о себе и при необходимости обратись за поддержкой к квалифицированному специалисту.</div>
  ${btn("Открыть волшебное письмо","go('chapter1')")}`);
 }
+
 function chapter1(){
  state.page="chapter1";
  show(`
  ${hero("Таинственное приглашение","ГЛАВА ПЕРВАЯ","chapter1_room.png")}
+ ${img("magic_book.png","Волшебная книга")}
  <div class="story">
  <p>В один из зимних вечеров ты замечаешь на подоконнике необычный конверт. На нём — золотая снежинка, а на обратной стороне нет ни имени, ни адреса.</p>
  <p>Стоит тебе прикоснуться к конверту, как снежинка начинает мягко мерцать. Письмо раскрывается само собой. На старинной бумаге проступают слова:</p>
@@ -582,7 +574,6 @@ function macReveal(){
  <div class="story"><p>Побудь немного с этим образом. Что в нём тебе особенно нравится? На что он напоминает обратить внимание? Ты можешь забрать из этой встречи только ту мысль, которая действительно подходит тебе.</p></div>
  ${starline()}${btn("Завершить путешествие","completeChapter(5,'final')")}`);
 }
-pages.macReveal=macReveal;
 
 function finale(){
  state.page="final";
@@ -613,7 +604,7 @@ function finale(){
  <h3>Подари путешествие подруге</h3>
  <p>Ты можешь подарить эту игру близкому человеку по минимальной возможной стоимости.</p>
  <p class="small">Стоимость подарка уточни у Дианы.</p>
- <button class="btn secondary" onclick="contact('Здравствуйте! Хочу узнать стоимость, чтобы подарить игру «Карта желаний» подруге.')">Узнать стоимость подарка</button>`)}
+ <button type="button" class="btn giftButton" onclick="contact('Здравствуйте! Хочу узнать стоимость, чтобы подарить игру «Карта желаний» подруге.')">Узнать стоимость подарка подруге</button>`)}
  <p class="small" style="text-align:center">Пусть в новом году будет больше того, что действительно важно для тебя. ✨</p>
  <div class="notice">Ты можешь остановиться, пропустить любое упражнение и позаботиться о себе. Если игра вызвала сильные чувства, сделай паузу и при необходимости обратись за поддержкой к квалифицированному специалисту.</div>`);
 }
