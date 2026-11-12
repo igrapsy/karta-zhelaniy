@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -8,7 +9,30 @@
 <style>
 :root{--night:#172440;--gold:#e8d19c;--cream:#fff5e5;--ink:#293650;--paper:#fff8ec}
 *{box-sizing:border-box}
-body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% 0%,#405778 0%,#263b5a 42%,#1b2b46 100%);background-attachment:fixed;color:var(--cream);font-family:Georgia,"Times New Roman",serif}
+body{
+ margin:0;
+ min-height:100vh;
+ background-color:#10213d;
+ background-image:
+ radial-gradient(2px 2px at 20px 30px,#fff8d8aa 45%,transparent 55%),
+ radial-gradient(1.5px 1.5px at 90px 70px,#fff 45%,transparent 55%),
+ radial-gradient(2px 2px at 150px 120px,#e8d19c99 45%,transparent 55%),
+ radial-gradient(ellipse at 50% 0%,#49678c 0%,#263e64 42%,#101d37 100%);
+ background-size:180px 160px,230px 190px,270px 220px,100% 100%;
+ background-attachment:fixed;
+ color:var(--cream);
+ font-family:Georgia,"Times New Roman",serif
+}
+body:before{
+ content:"";
+ position:fixed;
+ inset:0;
+ pointer-events:none;
+ z-index:-1;
+ background:
+ radial-gradient(ellipse at 8% 18%,#d8eaff12,transparent 35%),
+ radial-gradient(ellipse at 92% 72%,#f5d58b12,transparent 34%)
+}
 button,input,textarea{font:inherit}
 #app{max-width:790px;margin:auto;padding:14px 15px 42px}
 .top{display:flex;justify-content:space-between;gap:8px;color:#f5e8c9;font:11px Arial,sans-serif;letter-spacing:1px;text-transform:uppercase;margin:5px 0 14px;padding:10px 12px;border:1px solid #d9c79a55;border-radius:12px;background:linear-gradient(110deg,#263b59ed,#344967e8);box-shadow:0 4px 16px #08172b35}
@@ -29,6 +53,9 @@ p{font-size:17px;line-height:1.7;margin:12px 0;color:inherit}
 .coverHero .heroContent{padding:15px 19px 18px;background:linear-gradient(110deg,#1c2e49,#2c4260);text-shadow:none}
 .coverHero .heroContent h1{margin:4px 0}
 .coverHero .heroContent p{color:#f4ead8}
+.introInvitation{margin:16px 0 20px;padding:10px;border:1px solid #e8d19c99;border-radius:20px;background:linear-gradient(135deg,#f5e6c4,#c5a96d);box-shadow:0 8px 28px #06132955}
+.introInvitation .artwork{max-height:none;object-fit:contain;margin:0;border:0;border-radius:12px}
+.giftDivider{height:1px;background:linear-gradient(90deg,transparent,#b79b65,transparent);margin:22px 0}
 .hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;opacity:.9}
 .hero:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#101c35e8,transparent 85%);z-index:-1}
 .heroContent{width:100%;text-shadow:0 2px 8px #101c35}
@@ -242,10 +269,17 @@ function completeChapter(number,nextName){
 function intro(){
  state.page="intro";
  show(`
- <div class="hero coverHero">${img("cover.png","Карта желаний","")}
- <div class="heroContent"><div class="small">НОВОГОДНЕЕ СКАЗОЧНОЕ ПРИКЛЮЧЕНИЕ</div>
- <h1>Карта желаний</h1><p>Путешествие к тому, что хочется пригласить в свою жизнь</p></div></div>
+ <div class="hero coverHero">
+ <img src="${IMG}cover.png" alt="Карта желаний" loading="eager">
+ <div class="heroContent">
+ <div class="small">✧ НОВОГОДНЕЕ СКАЗОЧНОЕ ПРИКЛЮЧЕНИЕ ✧</div>
+ <h1>Карта желаний</h1>
+ <p>Путешествие к тому, что хочется пригласить в свою жизнь</p>
+ </div>
+ </div>
+ <div class="introInvitation">
  ${img("invitation.png","Волшебное приглашение")}
+ </div>
  ${panel(`<h3>Приготовься к путешествию</h3>
  <p>Тебе понадобятся лист бумаги А4, цветные карандаши, фломастеры или краски, ручка. По желанию — блокнот.</p>
  <p>Устройся поудобнее, приготовь любимый напиток и выдели немного времени только для себя. Здесь не нужно торопиться: можно проходить главы в своём темпе, делать паузы и возвращаться к заданиям.</p>`)}
@@ -572,16 +606,21 @@ function finale(){
  <p>Сделай спокойный вдох и выдох. Ты снова здесь, в своём пространстве.</p>
  ${panel(`<h3>Подарок для тебя</h3>
  <p>Благодарю тебя за это путешествие!</p>
- <p>Для тебя действует скидка <strong>30%</strong> на индивидуальную консультацию.</p>
- <p class="small">Чтобы воспользоваться предложением, напиши мне в Telegram.</p>
- <button class="btn" onclick="contact()">Написать Диане</button>`)}
- ${btn("Подарить подруге это путешествие","shareGame()",true)}
+ <p>Если ты ещё не была на моей консультации, для тебя действует скидка <strong>50%</strong> на первую индивидуальную консультацию.</p>
+ <p class="small">Предложение со скидкой действует только для новых клиентов.</p>
+ <button class="btn" onclick="contact('Здравствуйте! Я прошла игру «Карта желаний» и хочу воспользоваться скидкой 50% на первую консультацию.')">Получить скидку 50%</button>
+ <div class="giftDivider"></div>
+ <h3>Подари путешествие подруге</h3>
+ <p>Ты можешь подарить эту игру близкому человеку по минимальной возможной стоимости.</p>
+ <p class="small">Стоимость подарка уточни у Дианы.</p>
+ <button class="btn secondary" onclick="contact('Здравствуйте! Хочу узнать стоимость, чтобы подарить игру «Карта желаний» подруге.')">Узнать стоимость подарка</button>`)}
  <p class="small" style="text-align:center">Пусть в новом году будет больше того, что действительно важно для тебя. ✨</p>
  <div class="notice">Ты можешь остановиться, пропустить любое упражнение и позаботиться о себе. Если игра вызвала сильные чувства, сделай паузу и при необходимости обратись за поддержкой к квалифицированному специалисту.</div>`);
 }
 
-function contact(){
- window.open("https://t.me/psychologdiana","_blank","noopener");
+function contact(message="Здравствуйте! Хочу узнать подробнее об игре «Карта желаний»."){
+ const url="https://t.me/psychologdiana?text="+encodeURIComponent(message);
+ window.open(url,"_blank","noopener");
 }
 async function shareGame(){
  const url=GAME_URL;
