@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -6,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#172440">
 <title>Карта желаний</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
 <style>
 :root{--night:#172440;--gold:#e8d19c;--cream:#fff5e5;--ink:#293650;--paper:#fff8ec}
 *{box-sizing:border-box}
@@ -53,7 +53,7 @@ p{font-size:17px;line-height:1.7;margin:12px 0;color:inherit}
 input[type=text],textarea{width:100%;padding:13px;border-radius:11px;border:1px solid #b9a779;background:#fffdf8;color:#263653;margin:8px 0 14px}
 textarea{min-height:90px;resize:vertical;line-height:1.55}
 label{display:block;line-height:1.5;color:#263653;margin-top:10px}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+ .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
 .tile{border:1px solid #d7c18e;background:#fffaf0;color:#263653;border-radius:14px;padding:9px;cursor:pointer;text-align:center;min-width:0;font:14px/1.4 Arial,sans-serif}
 .tile img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:9px;display:block;margin-bottom:8px;background:#e7dfd1}
 .tile.selected{border:2px solid #ad8843;background:#f8edcf;box-shadow:0 0 0 2px #e8d19c55}
@@ -96,6 +96,18 @@ body.coverScreen .btn{margin-top:14px}
  .macGrid .tile img{height:140px}
  p{font-size:16px}
 }
+
+/* Экран проверки доступа */
+body.accessLocked .top,body.accessLocked .progress,body.accessLocked .footer{display:none}
+body.accessLocked #app{padding-top:24px}
+.accessScreen{max-width:560px;margin:22px auto;padding:24px 20px;border:1px solid #e8d19c88;border-radius:20px;background:linear-gradient(145deg,#243653f5,#1c2b47f5);box-shadow:0 10px 30px #06132966;text-align:center}
+.accessScreen h1{font-size:clamp(28px,7vw,38px)}
+.accessScreen p{color:#f7eddd}
+.accessScreen .small{color:#e1d6c6}
+.accessScreen .accessIcon{font-size:42px;margin-bottom:8px}
+.accessScreen .btn{margin:14px 0}
+.accessError{color:#ffe0bd;font:13px/1.6 Arial,sans-serif;margin-top:12px}
+
 </style>
 </head>
 <body>
@@ -111,7 +123,7 @@ const IMG="images/images/";
 const GAME_URL="https://igrapsy.github.io/karta-zhelaniy/";
 const content=document.getElementById("content");
 const progressBar=document.getElementById("progressBar");
-const chapterLabel=document.getElementById("chapterLabel");
+ const chapterLabel=document.getElementById("chapterLabel");
 
 const state={
  page:"intro",history:[],stars:[],
@@ -201,7 +213,7 @@ const macCards=[
 
 function safe(s){
  return String(s??"").replace(/[&<>"']/g,c=>({
- "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+   "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
  }[c]));
 }
 function img(file,alt="",cls="artwork"){
@@ -292,7 +304,7 @@ function chapter1(){
  <p class="small">Не ищи правильные ответы. Записывай первое, что приходит, или просто размышляй.</p>
  <label>Чего мне хочется больше в следующем году?</label>
  <textarea oninput="state.start1=this.value" placeholder="Мне хочется больше...">${safe(state.start1||"")}</textarea>
- <label>Какие приятные события я хотела бы пригласить в свою жизнь?</label>
+  <label>Какие приятные события я хотела бы пригласить в свою жизнь?</label>
  <textarea oninput="state.start2=this.value" placeholder="Я была бы рада...">${safe(state.start2||"")}</textarea>
  <label>Что я давно хотела попробовать, но откладывала?</label>
  <textarea oninput="state.start3=this.value" placeholder="Мне давно интересно...">${safe(state.start3||"")}</textarea>`)}
@@ -357,7 +369,7 @@ function chapter3(){
 }
 
 function chapter4(){
- state.page="chapter4";
+  state.page="chapter4";
  show(`
  ${hero("Дворец желаний","ГЛАВА ЧЕТВЁРТАЯ","chapter4_palace.png")}
  <div class="story">
@@ -455,7 +467,7 @@ async function buildWishBoard(){
   ctx.shadowBlur=12;
   ctx.fillStyle="#fff";
   ctx.fillRect(x-8,y-8,cellW+16,cellH+16);
-  ctx.restore();
+    ctx.restore();
   ctx.fillStyle="#fdfbf6";
   ctx.fillRect(x,y,cellW,cellH-65);
   fitImage(ctx,im,x+12,y+10,cellW-24,cellH-85);
@@ -535,7 +547,7 @@ function makeLetter(){
  ${hero("Письмо из будущего","ТВОЁ ЛИЧНОЕ ПОСЛАНИЕ","chapter6_letter.png")}
  ${panel(`<p>Привет, моя дорогая!</p>
  <p>Я пишу тебе из того времени, где многое стало чуть яснее. И первое, что хочу сказать: ${personal}</p>
- <p>Не думай, что всё важное должно случиться сразу. Большие перемены часто начинаются с тихого решения быть внимательнее к себе, с желания, которому ты позволила стать важным, с маленького шага, который никто, кроме тебя, может даже не заметить.</p>
+  <p>Не думай, что всё важное должно случиться сразу. Большие перемены часто начинаются с тихого решения быть внимательнее к себе, с желания, которому ты позволила стать важным, с маленького шага, который никто, кроме тебя, может даже не заметить.</p>
  <p>Пожалуйста, не обесценивай то, что уже получается. Замечай свои интересы, береги то, что приносит радость, и оставляй в жизни место для нового.</p>
  <p>Пусть впереди будет больше того, что делает твою жизнь именно твоей.</p>
  <p>С теплом,<br>ты из будущего ✨</p>`)}
@@ -600,7 +612,7 @@ function finale(){
  <p>Если ты ещё не была на моей консультации, для тебя действует скидка <strong>50%</strong> на первую индивидуальную консультацию.</p>
  <p class="small">Предложение со скидкой действует только для новых клиентов.</p>
  <button class="btn" onclick="contact('Здравствуйте! Я прошла игру «Карта желаний» и хочу воспользоваться скидкой 50% на первую консультацию.')">Получить скидку 50%</button>
- <div class="giftDivider"></div>
+  <div class="giftDivider"></div>
  <h3>Подари путешествие подруге</h3>
  <p>Ты можешь подарить эту игру близкому человеку по минимальной возможной стоимости.</p>
  <p class="small">Стоимость подарка уточни у Дианы.</p>
@@ -631,7 +643,73 @@ async function shareGame(){
  "&text="+encodeURIComponent("Приглашаю тебя в новогоднее путешествие «Карта желаний»!");
  window.open(shareUrl,"_blank","noopener");
 }
-intro();
+
+const ACCESS_URL="https://wfapgmflxojxfbjzlzqy.supabase.co/functions/v1/karta-zhelaniy-access";
+const TRIBUTE_CHECKOUT_URL="https://t.me/tribute/app?startapp=pKbb";
+
+function accessScreen(message="",checking=false){
+ document.body.classList.add("accessLocked");
+ document.body.classList.remove("coverScreen");
+ content.innerHTML=`<section class="accessScreen">
+  <div class="accessIcon">✧</div>
+  <div class="small">НОВОГОДНЕЕ ПУТЕШЕСТВИЕ</div>
+  <h1>Карта желаний</h1>
+  <p>Это путешествие открывается после покупки доступа.</p>
+  <p class="small">После оплаты вернись сюда и нажми «Я уже оплатила» — мы проверим доступ автоматически.</p>
+  <button class="btn" type="button" onclick="openTributeCheckout()">Открыть страницу оплаты</button>
+  <button class="btn secondary" type="button" onclick="checkGameAccess(true)" ${checking?"disabled":""}>${checking?"Проверяем…":"Я уже оплатила — проверить доступ"}</button>
+  ${message?`<div class="accessError">${message}</div>`:""}
+  <p class="small">Если оплата уже прошла, но доступ не появился, напиши Диане.</p>
+  <button class="btn secondary" type="button" onclick="contact('Здравствуйте! Я оплатила игру «Карта желаний», но доступ пока не открылся. Помогите, пожалуйста.')">Написать Диане</button>
+ </section>`;
+}
+
+function openTributeCheckout(){
+ const tg=window.Telegram&&window.Telegram.WebApp;
+ if(tg&&typeof tg.openLink==="function") tg.openLink(TRIBUTE_CHECKOUT_URL);
+ else window.location.href=TRIBUTE_CHECKOUT_URL;
+}
+
+async function checkGameAccess(showChecking=false){
+ const tg=window.Telegram&&window.Telegram.WebApp;
+ const initData=tg&&tg.initData;
+ if(!initData){
+  accessScreen("Открой игру через Telegram-бота, чтобы мы могли проверить оплату.");
+  return false;
+ }
+ if(showChecking) accessScreen("",true);
+ try{
+  const response=await fetch(ACCESS_URL,{
+   method:"POST",
+   headers:{"Content-Type":"application/json"},
+   body:JSON.stringify({initData})
+  });
+  const result=await response.json();
+  if(!response.ok||!result.registered){
+   accessScreen("Не удалось подтвердить данные Telegram. Закрой игру и открой её заново через бота.");
+   return false;
+  }
+  if(result.access){
+   document.body.classList.remove("accessLocked");
+   intro();
+   return true;
+  }
+  accessScreen("Пока не вижу активной оплаты. Если ты только что оплатила, подожди немного и проверь ещё раз.");
+  return false;
+ }catch(error){
+  accessScreen("Не получилось связаться с сервером. Проверь интернет и попробуй ещё раз.");
+  return false;
+ }
+}
+
+async function bootAccess(){
+ const tg=window.Telegram&&window.Telegram.WebApp;
+ if(tg&&typeof tg.ready==="function") tg.ready();
+ await checkGameAccess(true);
+}
+
+bootAccess();
+
 </script>
 </body>
 </html>
